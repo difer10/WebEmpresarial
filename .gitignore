@@ -70,3 +70,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# base de datos
+db.sqlite3

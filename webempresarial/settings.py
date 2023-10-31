@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#$=#dx2t&qwiz^pm6ors=o8%%g6w)^&%pa50@@5obd526g&0dc'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -111,14 +112,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = config('LANGUAGE_CODE')
 
-TIME_ZONE = 'America/Bogota'
+TIME_ZONE = config('TIME_ZONE')
 
-USE_I18N = True
+USE_I18N =config('USE_I18N')
 
-USE_TZ = True
-
+USE_TZ = config('USE_TZ')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -148,8 +148,8 @@ CKEDITOR_CONFIGS = {
 }
 
 
-""" #Email config
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '2af6306e2a88dd'
-EMAIL_HOST_PASSWORD = 'bbd8e73b696302'
-EMAIL_PORT = '2525' """
+#Email config
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
